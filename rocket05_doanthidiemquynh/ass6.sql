@@ -5,10 +5,10 @@ DROP PROCEDURE IF EXISTS bai1;
 CREATE PROCEDURE bai1
 (IN in_dep_name NVARCHAR(50))
 BEGIN
-	SELECT 	a.Email, a.Username, a.CreateDate 
-    FROM	Department d INNER JOIN `Account` d
-    ON		d.DepartmentID = a.DepartmentID
-    WHERE	DepartmentName = in_dep_name;
+SELECT 	a.Email, a.Username, a.CreateDate 
+    FROM Department d INNER JOIN `Account` d
+    ON	d.DepartmentID = a.DepartmentID
+    WHERE DepartmentName = in_dep_name;
 END$$
 DELIMITER ;
 Call bai1('Sale');
@@ -19,10 +19,10 @@ DELIMITER $$
 CREATE PROCEDURE bai2
 (IN in_GroupID TINYINT UNSIGNED)
 BEGIN
-	SELECT 		ga.GroupID, COUNT(ga.AccountID)
-    FROM		GroupAccount ga
-    WHERE		ga.GroupID = in_GroupID
-    GROUP BY	ga.GroupID;
+	SELECT 	ga.GroupID, COUNT(ga.AccountID)
+    FROM GroupAccount ga
+    WHERE ga.GroupID = in_GroupID
+    GROUP BY ga.GroupID;
 END$$
 DELIMITER ;
 call bai2(3);
